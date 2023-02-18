@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/stack';
 import routes from './routes';
 import BottomTabBar from './BottomTabBar';
-import {Tracking, Cards, Onboarding, Login, Signup} from '../screens';
+import {Tracking, Cards, Onboarding, Login, Signup, ViewMenu, OrderDetails} from '../screens';
 import RNBootSplash from 'react-native-bootsplash';
 
 const Stack = createStackNavigator();
@@ -28,8 +28,11 @@ export const PrimaryNavigatory = () => {
         <Stack.Screen name={routes.dasboard} component={BottomTabBar} />
         {/* order screens */}
         <Stack.Screen name={routes.orders.tracking} component={Tracking} />
+        <Stack.Screen name={routes.orders.details} component={OrderDetails} />
         {/* profile screens */}
         <Stack.Screen name={routes.profile.cards} component={Cards} />
+        {/* explore screens */}
+        <Stack.Screen name={routes.explore.viewMenu} component={ViewMenu} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -8,4 +8,9 @@ export default {
   visa_gold: require('./visa-gold.png'),
   monobank: require('./monobank.png'),
   love_burger: require('./love-burger.png'),
+  original_salad: require('./original_salad.png'),
+  fresh_salad: require('./fresh_salad.png'),
+  restauarant: require('./restaurant.png'),
+  pizza: require('./pizza.png'),
+  map: require('./map.png'),
 };

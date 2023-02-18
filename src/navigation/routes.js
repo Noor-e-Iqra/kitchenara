@@ -11,13 +11,15 @@ export default {
   },
   explore: {
     index: 'explore-index',
+    viewMenu:'view-menu'
   },
   post: {
     index: 'post-index',
   },
   orders: {
     index: 'orders-index',
-    tracking:'orders-tracking'
+    tracking:'orders-tracking',
+    details:'order-details'
   },
   profile: {
     index: 'profile-index',

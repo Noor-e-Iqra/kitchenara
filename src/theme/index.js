@@ -11,6 +11,7 @@ export const COLORS = {
   light_black: '#09101D',
   green: '#24AC7F',
   gray: '#9E9E9E',
+  gray_text: '#848484',
   dark_gray: '#656565',
   light_gray: '#84848480',
   light_gray2: '#616161',
@@ -25,7 +26,7 @@ export const COLORS = {
 
 export const SIZES = {
   // global sizes
-  padding: 20,
+  padding: 24,
 
   // app dimensions
   width,

@@ -10,7 +10,7 @@ import routes from './routes';
 import {COLORS} from '../theme';
 // icons
 import icons from '../assets/icons';
-import {Home, Cards } from '../screens';
+import {Home, Cards, ViewMenu } from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -68,7 +68,7 @@ const BottomTabBar = () => {
 
       <Tab.Screen
         name={routes.explore.index}
-        component={Orders}
+        component={ViewMenu}
         options={{
           tabBarIcon({focused}) {
             return (

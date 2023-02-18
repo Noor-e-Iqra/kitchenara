@@ -5,5 +5,8 @@ export default {
     profile: require('./Profile.png'),
     search: require('./Search.png'),
     arrow_back: require('./arrow-back.png'),
+    apple: require('./apple.png'),
+    briefcase: require('./briefcase.png'),
+
 
 };

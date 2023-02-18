@@ -21,10 +21,11 @@ const CustomButton = ({
         activeOpacity={0.6}
         style={[
           styles.large_container,
-          btnStyle,
           {backgroundColor: disabled ? '#E5384E80' : COLORS.primary},
+          btnStyle,
         ]}
         onPress={onPress}>
+        {icon}
         <Text style={styles.large_title}>{text}</Text>
       </TouchableOpacity>
     );

@@ -14,12 +14,12 @@ import CustomHeader from '../../components/Header';
 import {COLORS, FONTS, SIZES} from '../../theme';
 import Heading from '../../components/Heading'
 import HistoryOrder from './components/OrderStatusBar';
-import OngoingOrder from './components/OutilneContainer';
+import OngoingOrder from '../../components/OutilneContainer';
 import {history, onging, OrderDetails} from './DummyData';
 import OrderStatusBar from './components/OrderStatusBar';
 import images from '../../assets/images';
-import OutilneContainer from './components/OutilneContainer';
-import RowText from './components/RowText';
+import OutilneContainer from '../../components/OutilneContainer';
+import RowText from '../../components/RowText';
 import CustomButton from '../../components/Button';
 
 export const Tracking = ({navigation}) => {
