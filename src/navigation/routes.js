@@ -4,6 +4,7 @@ export default {
   auth: {
     login: "login",
     signUp: "sign-up",
+    verifyPhone: "verify-phone",
     onboarding: "onboarding",
   },
   home: {
@@ -19,7 +20,8 @@ export default {
   orders: {
     index: 'orders-index',
     tracking:'orders-tracking',
-    details:'order-details'
+    details:'order-details',
+    myLocation:'order-my-location'
   },
   profile: {
     index: 'profile-index',

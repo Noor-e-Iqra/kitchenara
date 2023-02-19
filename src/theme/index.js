@@ -22,6 +22,9 @@ export const COLORS = {
   red: '#E5384E',
   light_blue: '#4086F0',
   lineAround: '#EEE',
+  input_bg: '#EEEEEE',
+  disabled: '#E5384E80',
+  hyperLink:'#5DC6F2'
 };
 
 export const SIZES = {

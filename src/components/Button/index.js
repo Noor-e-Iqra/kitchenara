@@ -12,6 +12,7 @@ const CustomButton = ({
   onPress,
   outlined,
   btnStyle,
+  textStyle,
   icon,
   disabled,
 }) => {
@@ -46,7 +47,8 @@ const CustomButton = ({
         activeOpacity={0.6}
         style={[styles.outline_container, btnStyle]}
         onPress={onPress}>
-        <Text style={styles.outline_title}>{text}</Text>
+        {icon}
+        <Text style={[styles.outline_title,textStyle]}>{text}</Text>
       </TouchableOpacity>
     );
   }

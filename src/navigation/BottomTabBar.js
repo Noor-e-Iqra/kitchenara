@@ -10,7 +10,7 @@ import routes from './routes';
 import {COLORS} from '../theme';
 // icons
 import icons from '../assets/icons';
-import {Home, Cards, ViewMenu } from '../screens';
+import {Home, Cards, ViewMenu, Profile } from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -123,7 +123,7 @@ const BottomTabBar = () => {
 
       <Tab.Screen
         name={routes.profile.index}
-        component={Cards}
+        component={Profile}
         options={{
           tabBarIcon: ({focused}) => {
             return (

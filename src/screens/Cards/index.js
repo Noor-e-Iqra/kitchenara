@@ -13,10 +13,11 @@ import {useFormik} from 'formik';
 import {object, string} from 'yup';
 import Waiting from '../../modals/Waiting';
 
-export const Cards = ({navigation}) => {
+export const Cards = ({navigation, route}) => {
   const addedCards = [images.visa_gold, images.monobank, images.visa_classic];
   const [selectedCard, setSelectedCard] = useState('');
-  const [showModal, setShowModal] = useState(false)
+  //if cash on delivery is selected as payment then direclty show (waiting for order modal) else show cards screen
+  const [showModal, setShowModal] = useState(route.params.selected == 0);
 
   const initialValues = {
     card_number: '',
@@ -38,7 +39,7 @@ export const Cards = ({navigation}) => {
 
   function onSubmit(values) {
     console.log(values);
-    setShowModal(true)
+    setShowModal(true);
   }
 
   return (
@@ -142,7 +143,16 @@ export const Cards = ({navigation}) => {
         </View>
       </ScrollView>
       {/* waiting for order modal */}
-      <Waiting visibility={showModal} setVisibility={setShowModal}/>
+      <Waiting
+        visibility={showModal}
+        setVisibility={setShowModal}
+        //if cash on delivery is selected as payment then go back on press of cancel btn else hide modal
+        onPress={() =>
+          route?.params?.selected == 0
+            ? navigation.goBack()
+            : setShowModal(false)
+        }
+      />
     </Container>
   );
 };

@@ -7,7 +7,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import images from '../assets/images';
 import CustomButton from '../components/Button';
 
-const Waiting = ({visibility, setVisibility}) => {
+const Waiting = ({visibility, setVisibility,onPress}) => {
   return (
     <Modal
       visible={visibility}
@@ -62,7 +62,7 @@ const Waiting = ({visibility, setVisibility}) => {
             text={'Cancel'}
             large={true}
             btnStyle={{width: SIZES.width - 100}}
-            onPress={()=>setVisibility(false)}
+            onPress={onPress}
           />
         </View>
       </View>
