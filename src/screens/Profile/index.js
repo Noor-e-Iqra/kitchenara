@@ -17,15 +17,16 @@ import About from './components/About';
 import BackButton from '../../components/BackButton';
 import CustomHeader from '../../components/Header';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import ApplyForCreator from './components/ApplyForCreator';
 
-const Header = ({navigation, route}) => {
+const Header = ({navigation, route, creator}) => {
   return (
     <View
       style={{
         padding: SIZES.padding,
-        paddingTop: route?.params?.visit ? 0 : undefined,
+        paddingTop: route?.params?.visit && creator ? 0 : undefined,
       }}>
-      {route?.params?.visit && (
+      {route?.params?.visit && creator && (
         <View style={[styles.row, {marginBottom: 20}]}>
           <CustomHeader showArrow={true} />
           <Text style={[styles.name, {marginLeft: 50}]}>@johnnyeats</Text>
@@ -39,11 +40,16 @@ const Header = ({navigation, route}) => {
         />
         <View style={{marginLeft: 10, flex: 1}}>
           <Text style={styles.name}>JohnDoe</Text>
-          <Text style={styles.country}>Berlin, Germany</Text>
-          <Text style={styles.desc}>
-            Part-time chef, part-time photographer Cooking my way through life’s
-            tribulations
-          </Text>
+          {/* if person is a creator */}
+          {creator && (
+            <>
+              <Text style={styles.country}>Berlin, Germany</Text>
+              <Text style={styles.desc}>
+                Part-time chef, part-time photographer Cooking my way through
+                life’s tribulations
+              </Text>
+            </>
+          )}
         </View>
       </View>
       <View
@@ -52,23 +58,29 @@ const Header = ({navigation, route}) => {
           justifyContent: 'space-between',
           marginVertical: 20,
         }}>
-        <ColumnText value={'1.63K'} label="Followers" />
+        <ColumnText value={creator ? '1.63K' : '0'} label="Followers" />
         <View style={styles.divider} />
-        <ColumnText value={'340'} label="Following" />
+        <ColumnText value={creator ? '340' : '0'} label="Following" />
         <View style={styles.divider} />
-        <ColumnText value={'490'} label="Videos" />
+        <ColumnText value={creator ? '490' : '0'} label="Videos" />
       </View>
       <View style={{...styles.row, justifyContent: 'space-between'}}>
         <CustomButton
-          text={route?.params?.visit ? 'Follow' : 'Professional Dashboard'}
+          text={
+            route?.params?.visit && creator
+              ? 'Follow'
+              : 'Professional Dashboard'
+          }
           large={true}
-          icon={route?.params?.visit &&
-            <MaterialCommunityIcons
-              name="plus"
-              size={20}
-              color={COLORS.secondary}
-              style={{marginRight: 5}}
-            />
+          icon={
+            route?.params?.visit && (
+              <MaterialCommunityIcons
+                name="plus"
+                size={20}
+                color={COLORS.secondary}
+                style={{marginRight: 5}}
+              />
+            )
           }
           btnStyle={{
             height: 35,
@@ -99,10 +111,13 @@ const Header = ({navigation, route}) => {
 };
 
 export const Profile = ({navigation, route}) => {
+  const [creator, setCreator] = useState(false);
   return (
     <Container>
       <Tabs.Container
-        renderHeader={() => <Header route={route} navigation={navigation} />}
+        renderHeader={() => (
+          <Header route={route} navigation={navigation} creator={creator} />
+        )}
         renderTabBar={props => (
           <MaterialTabBar
             {...props}
@@ -113,29 +128,53 @@ export const Profile = ({navigation, route}) => {
         )}>
         {/* posts */}
         <Tabs.Tab name="Posts">
-          <Tabs.FlatList
-            data={Videos}
-            numColumns={3}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.flatlist}
-            renderItem={({item}) => <Video item={item} />}
-          />
+          {creator ? (
+            <Tabs.FlatList
+              data={Videos}
+              numColumns={3}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.flatlist}
+              renderItem={({item}) => <Video item={item} />}
+            />
+          ) : (
+            <Tabs.ScrollView>
+              <ApplyForCreator
+                category={'videos'}
+                onPress={() => setCreator(true)}
+              />
+            </Tabs.ScrollView>
+          )}
         </Tabs.Tab>
         {/* partners */}
         <Tabs.Tab name="Partners">
-          <Tabs.FlatList
-            data={partners}
-            numColumns={3}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.flatlist}
-            renderItem={({item}) => <Partner item={item} />}
-          />
+          {creator ? (
+            <Tabs.FlatList
+              data={partners}
+              numColumns={3}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.flatlist}
+              renderItem={({item}) => <Partner item={item} />}
+            />
+          ) : (
+            <Tabs.ScrollView>
+              <ApplyForCreator
+                category={'partners'}
+                onPress={() => setCreator(true)}
+              />
+            </Tabs.ScrollView>
+          )}
         </Tabs.Tab>
         {/* about */}
         <Tabs.Tab name="About">
-          <Tabs.ScrollView>
-            <About item={about} />
-          </Tabs.ScrollView>
+          {creator ? (
+            <Tabs.ScrollView>
+              <About item={about} />
+            </Tabs.ScrollView>
+          ) : (
+            <Tabs.ScrollView>
+              <ApplyForCreator onPress={() => setCreator(true)} />
+            </Tabs.ScrollView>
+          )}
         </Tabs.Tab>
       </Tabs.Container>
     </Container>
