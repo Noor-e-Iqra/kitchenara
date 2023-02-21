@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/stack';
 import routes from './routes';
 import BottomTabBar from './BottomTabBar';
-import {Tracking, Cards, Onboarding, Login, Signup, ViewMenu, OrderDetails, Location, Verify_Phone} from '../screens';
+import {Tracking, Cards, Onboarding, Login, Signup, ViewMenu, OrderDetails, Location, Verify_Phone, SeeAll} from '../screens';
 import RNBootSplash from 'react-native-bootsplash';
 
 const Stack = createStackNavigator();
@@ -35,6 +35,7 @@ export const PrimaryNavigatory = () => {
         <Stack.Screen name={routes.profile.cards} component={Cards} />
         {/* explore screens */}
         <Stack.Screen name={routes.explore.viewMenu} component={ViewMenu} />
+        <Stack.Screen name={routes.explore.seeAll} component={SeeAll} />
       </Stack.Navigator>
     </NavigationContainer>
   );

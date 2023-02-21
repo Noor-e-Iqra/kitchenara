@@ -38,6 +38,18 @@ export const Videos = [
     image: require('../../assets/images/post-image-3.png'),
     uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   },
+  {
+    image: require('../../assets/images/post-image-5.png'),
+    uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  {
+    image: require('../../assets/images/post-image-6.png'),
+    uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
+  {
+    image: require('../../assets/images/post-image-1.png'),
+    uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+  },
 ];
 
 export const partners = [

@@ -6156,7 +6156,12 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@>= 0.62", "react-native@>= 0.64.3", "react-native@>=0.57", "react-native@>=0.65.0", "react-native@0.71.3":
+"react-native-view-overflow@^0.0.5":
+  "integrity" "sha512-p/peyU3IC7M84bZEz2K7hpLrKBPUT3W7/+wnXjGw40hX/Iaj0OmOqJI6mJcBUlpcHJvGYbx2OOpPZa4+hwJC6w=="
+  "resolved" "https://registry.npmjs.org/react-native-view-overflow/-/react-native-view-overflow-0.0.5.tgz"
+  "version" "0.0.5"
+
+"react-native@*", "react-native@>= 0.62", "react-native@>= 0.64.3", "react-native@>=0.41.2", "react-native@>=0.57", "react-native@>=0.65.0", "react-native@0.71.3":
   "integrity" "sha512-RYJXCcQGa4NTfKiPgl92eRDUuQ6JGDnHqFEzRwJSqEx9lWvlvRRIebstJfurzPDKLQWQrvITR7aI7e09E25mLw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.71.3.tgz"
   "version" "0.71.3"

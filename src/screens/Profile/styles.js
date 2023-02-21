@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { tabBarHeight } from '../../navigation/tabBarHeight';
 import {COLORS, FONTS} from '../../theme';
 
 export const styles = StyleSheet.create({
@@ -56,5 +57,6 @@ export const styles = StyleSheet.create({
   flatlist:{
     margin: 20,
     alignSelf: 'center',
+    paddingBottom:tabBarHeight
   },
 });

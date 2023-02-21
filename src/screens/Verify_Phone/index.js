@@ -151,7 +151,7 @@ const Verify_Phone = () => {
                                 style={{ marginTop: 0 }}>
                                 <CustomButton
                                     text={'Verify'}
-                                    onPress={() => navigation.navigate(routes.dasboard)}
+                                    onPress={() => navigation.navigate(routes.profile.cards)}
                                     large={true}
                                     disabled={verifyButtonDisabled}
                                 />

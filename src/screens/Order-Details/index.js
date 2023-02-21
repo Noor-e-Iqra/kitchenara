@@ -194,7 +194,7 @@ export const OrderDetails = ({navigation}) => {
             large={true}
             btnStyle={{flexDirection: 'row', backgroundColor: 'black'}}
             onPress={() =>
-              navigation.navigate(routes.profile.cards, {selected: selected})
+              navigation.navigate(routes.auth.login, {selected: selected})
             }
             icon={
               <Image

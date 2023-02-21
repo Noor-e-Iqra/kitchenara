@@ -80,7 +80,7 @@ const Login = () => {
 
               <CustomButton
                 text={'Login'}
-                onPress={() => navigation.navigate(routes.dasboard)}
+                onPress={() => navigation.navigate(routes.profile.cards)}
                 large={true}
               />
 

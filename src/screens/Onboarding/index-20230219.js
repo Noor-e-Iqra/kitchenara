@@ -54,7 +54,7 @@ export const Onboarding = ({navigation}) => {
 
               <CustomButton
                 text={'Get Started'}
-                onPress={() => navigation.navigate(routes.auth.login)}
+                onPress={() => navigation.navigate(routes.dasboard)}
                 large={true}
                 btnStyle={{width:"100%",marginBottom:30}}
               />

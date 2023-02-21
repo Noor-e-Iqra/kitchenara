@@ -12,7 +12,8 @@ export default {
   },
   explore: {
     index: 'explore-index',
-    viewMenu:'view-menu'
+    viewMenu:'view-menu',
+    seeAll:'see-all'
   },
   post: {
     index: 'post-index',

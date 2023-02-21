@@ -18,6 +18,7 @@ import BackButton from '../../components/BackButton';
 import CustomHeader from '../../components/Header';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ApplyForCreator from './components/ApplyForCreator';
+import { tabBarHeight } from '../../navigation/tabBarHeight';
 
 const Header = ({navigation, route, creator}) => {
   return (
@@ -114,69 +115,70 @@ export const Profile = ({navigation, route}) => {
   const [creator, setCreator] = useState(false);
   return (
     <Container>
-      <Tabs.Container
-        renderHeader={() => (
-          <Header route={route} navigation={navigation} creator={creator} />
-        )}
-        renderTabBar={props => (
-          <MaterialTabBar
-            {...props}
-            activeColor={COLORS.primary}
-            indicatorStyle={styles.indicator}
-            labelStyle={styles.labelStyle}
-          />
-        )}>
-        {/* posts */}
-        <Tabs.Tab name="Posts">
-          {creator ? (
-            <Tabs.FlatList
-              data={Videos}
-              numColumns={3}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={styles.flatlist}
-              renderItem={({item}) => <Video item={item} />}
+        <Tabs.Container
+          renderHeader={() => (
+            <Header route={route} navigation={navigation} creator={creator} />
+          )}
+          renderTabBar={props => (
+            <MaterialTabBar
+              {...props}
+              activeColor={COLORS.primary}
+              indicatorStyle={styles.indicator}
+              labelStyle={styles.labelStyle}
             />
-          ) : (
-            <Tabs.ScrollView>
-              <ApplyForCreator
-                category={'videos'}
-                onPress={() => setCreator(true)}
+          )}>
+          {/* posts */}
+          <Tabs.Tab name="Posts">
+            {creator ? (
+              <Tabs.FlatList
+                data={Videos}
+                numColumns={3}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={styles.flatlist}
+                renderItem={({item}) => <Video item={item} />}
               />
-            </Tabs.ScrollView>
-          )}
-        </Tabs.Tab>
-        {/* partners */}
-        <Tabs.Tab name="Partners">
-          {creator ? (
-            <Tabs.FlatList
-              data={partners}
-              numColumns={3}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={styles.flatlist}
-              renderItem={({item}) => <Partner item={item} />}
-            />
-          ) : (
-            <Tabs.ScrollView>
-              <ApplyForCreator
-                category={'partners'}
-                onPress={() => setCreator(true)}
+            ) : (
+              <Tabs.ScrollView>
+                <ApplyForCreator
+                  category={'videos'}
+                  onPress={() => setCreator(true)}
+                />
+              </Tabs.ScrollView>
+            )}
+          </Tabs.Tab>
+          {/* partners */}
+          <Tabs.Tab name="Partners">
+            {creator ? (
+              <Tabs.FlatList
+                data={partners}
+                numColumns={3}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={styles.flatlist}
+                renderItem={({item}) => <Partner item={item} />}
               />
-            </Tabs.ScrollView>
-          )}
-        </Tabs.Tab>
-        {/* about */}
-        <Tabs.Tab name="About">
-          {creator ? (
-            <Tabs.ScrollView>
-              <About item={about} />
-            </Tabs.ScrollView>
-          ) : (
-            <Tabs.ScrollView>
-              <ApplyForCreator onPress={() => setCreator(true)} />
-            </Tabs.ScrollView>
-          )}
-        </Tabs.Tab>
-      </Tabs.Container>
+            ) : (
+              <Tabs.ScrollView>
+                <ApplyForCreator
+                  category={'partners'}
+                  onPress={() => setCreator(true)}
+                />
+              </Tabs.ScrollView>
+            )}
+          </Tabs.Tab>
+          {/* about */}
+          <Tabs.Tab name="About">
+            {creator ? (
+              <Tabs.ScrollView>
+                <About item={about} />
+              </Tabs.ScrollView>
+            ) : (
+              <Tabs.ScrollView>
+                <ApplyForCreator onPress={() => setCreator(true)} />
+              </Tabs.ScrollView>
+            )}
+          </Tabs.Tab>
+        </Tabs.Container>
+   
     </Container>
   );
 };

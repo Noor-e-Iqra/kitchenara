@@ -17,7 +17,7 @@ export const Cards = ({navigation, route}) => {
   const addedCards = [images.visa_gold, images.monobank, images.visa_classic];
   const [selectedCard, setSelectedCard] = useState('');
   //if cash on delivery is selected as payment then direclty show (waiting for order modal) else show cards screen
-  const [showModal, setShowModal] = useState(route.params.selected == 0);
+  const [showModal, setShowModal] = useState(route?.params?.selected == 0);
 
   const initialValues = {
     card_number: '',
