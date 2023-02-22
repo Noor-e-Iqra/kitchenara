@@ -13,14 +13,14 @@ export const popularMenu = [
     restaurantImage: require('../../assets/images/mcdonals2.png'),
   },
   {
-    image: images.love_burger,
+    image: require('../../assets/images/burger.png'),
     name: 'Hamburger',
   },
 ];
 
 export const mind = [
   {
-    image: images.love_burger,
+    image: require('../../assets/images/burger.png'),
     name: 'Hamburger',
    
   },

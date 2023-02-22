@@ -1,30 +1,21 @@
 import React, {useState} from 'react';
-import {
-  FlatList,
-  Image,
-  Pressable,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, Pressable, ScrollView, Text, View} from 'react-native';
 import icons from '../../assets/icons';
 import Container from '../../components/Container';
 import CustomHeader from '../../components/Header';
 import {COLORS, FONTS, SIZES} from '../../theme';
-import Heading from '../../components/Heading'
-import HistoryOrder from './components/OrderStatusBar';
-import OngoingOrder from '../../components/OutilneContainer';
-import {history, onging, OrderDetails} from './DummyData';
+import Heading from '../../components/Heading';
+import {OrderDetails} from './DummyData';
 import OrderStatusBar from './components/OrderStatusBar';
 import images from '../../assets/images';
 import OutilneContainer from '../../components/OutilneContainer';
 import RowText from '../../components/RowText';
 import CustomButton from '../../components/Button';
+import gifs from '../../assets/gifs';
 
 export const Tracking = ({navigation}) => {
   const [track, setTrack] = useState(1);
-  const image = [images.chef, images.bike, images.home_office];
+  const image = [gifs.chef, gifs.bike, gifs.delivered];
 
   return (
     <Container>
@@ -103,7 +94,7 @@ export const Tracking = ({navigation}) => {
                 }}
               />
             </OutilneContainer>
-            <CustomButton text={'Cancel Order'} large={true}/>
+            <CustomButton text={'Cancel Order'} large={true} />
           </View>
         </Pressable>
       </ScrollView>

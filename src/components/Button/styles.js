@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: COLORS.primary,
-      borderRadius: 20,
+      borderRadius: 18,
       marginTop: 25,
     },
    large_title:{

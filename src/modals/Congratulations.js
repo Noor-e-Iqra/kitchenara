@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
 import {COLORS, FONTS, SIZES} from '../theme';
+import {styles} from './styles';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import images from '../assets/images';
 import CustomButton from '../components/Button';
 import gifs from '../assets/gifs';
-import Timer from '../components/Timer';
 
-const Waiting = ({visibility, setVisibility,onPress}) => {
-  
+const Congratulations = ({visibility, onPress}) => {
   return (
     <Modal
       visible={visibility}
       animationType="fade"
-      statusBarTranslucent={true}>
+      statusBarTranslucent={true}
+      transparent={true}>
       <View
         style={{
           flex: 1,
-          backgroundColor: '#C4C4C46E',
+          backgroundColor: 'rgba(9, 16, 29, 0.7)',
           justifyContent: 'center',
           alignItems: 'center',
         }}>
@@ -27,8 +30,8 @@ const Waiting = ({visibility, setVisibility,onPress}) => {
             backgroundColor: COLORS.secondary,
           }}>
           <Image
-            source={gifs.burger}
-            style={{height: 200, width: 180}}
+            source={gifs.cake}
+            style={{height: 212, width: 285}}
             resizeMode="contain"
           />
           <Text
@@ -37,31 +40,22 @@ const Waiting = ({visibility, setVisibility,onPress}) => {
               fontSize: 24,
               color: COLORS.blue,
               textAlign: 'center',
-              marginVertical: 10,
+              marginTop: 32,
             }}>
-            Waiting for your order to be accepted
+            Congratulations!
           </Text>
-          <Timer text={['Reorder in ',' s','Reorder']}/>
-          {/* <Text
+          <Text
             style={{
               ...FONTS.urbanist_regular,
-              fontSize: 16,
+              fontSize: 18,
+              marginTop: 16,
             }}>
-            {' '}
-            <Text
-              style={{
-                ...FONTS.urbanist_semiBold,
-                fontSize: 18,
-                color: COLORS.primary,
-              }}>
-              56
-            </Text>{' '}
-            
-          </Text> */}
+            Your account is ready to use
+          </Text>
           <CustomButton
-            text={'Cancel'}
+            text={'CONTINUE'}
             large={true}
-            btnStyle={{width: SIZES.width - 100}}
+            btnStyle={{width: SIZES.width - 100,marginTop:32}}
             onPress={onPress}
           />
         </View>
@@ -70,4 +64,4 @@ const Waiting = ({visibility, setVisibility,onPress}) => {
   );
 };
 
-export default Waiting;
+export default Congratulations;

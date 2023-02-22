@@ -7,12 +7,21 @@ import IconButton from '../../../../components/IconButton';
 import routes from '../../../../navigation/routes';
 import {styles} from './styles';
 
-const AddItem = ({item,addToCart,setAddToCart}) => {
+const AddItem = ({item, addToCart, setAddToCart}) => {
   const [qty, setQty] = useState(1);
- 
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      // if item is added to cart you can click it to add go to its addons page
+      onPress={() =>
+        addToCart?.includes(item)
+          ? navigation.navigate(routes.explore.addOns, {item: item})
+          : {}
+      }
+      activeOpacity={0.6}
+      disabled={!addToCart?.includes(item)}
+      style={styles.container}>
       <Image
         source={item.image}
         style={{height: 68, width: 68}}
@@ -46,11 +55,11 @@ const AddItem = ({item,addToCart,setAddToCart}) => {
         <CustomButton
           text={'Add'}
           btnStyle={{borderRadius: 10, width: 80}}
-          onPress={() => setAddToCart([...addToCart,item])}
+          onPress={() => setAddToCart([...addToCart, item])}
           small={true}
         />
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
 

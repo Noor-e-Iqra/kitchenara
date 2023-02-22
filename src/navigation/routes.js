@@ -13,6 +13,7 @@ export default {
   explore: {
     index: 'explore-index',
     viewMenu:'view-menu',
+    addOns:'add-ons',
     seeAll:'see-all'
   },
   post: {

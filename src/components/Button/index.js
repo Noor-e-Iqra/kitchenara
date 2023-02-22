@@ -20,12 +20,13 @@ const CustomButton = ({
     return (
       <TouchableOpacity
         activeOpacity={0.6}
+        disabled={disabled}
+        onPress={onPress}
         style={[
           styles.large_container,
           {backgroundColor: disabled ? '#E5384E80' : COLORS.primary},
           btnStyle,
-        ]}
-        onPress={onPress}>
+        ]}>
         {icon}
         <Text style={styles.large_title}>{text}</Text>
       </TouchableOpacity>
@@ -35,8 +36,13 @@ const CustomButton = ({
     return (
       <TouchableOpacity
         activeOpacity={0.6}
-        style={[styles.small_container, btnStyle]}
-        onPress={onPress}>
+        disabled={disabled}
+        onPress={onPress}
+        style={[
+          styles.small_container,
+          {backgroundColor: disabled ? '#E5384E80' : COLORS.primary},
+          btnStyle,
+        ]}>
         <Text style={styles.small_title}>{text}</Text>
       </TouchableOpacity>
     );
@@ -48,7 +54,7 @@ const CustomButton = ({
         style={[styles.outline_container, btnStyle]}
         onPress={onPress}>
         {icon}
-        <Text style={[styles.outline_title,textStyle]}>{text}</Text>
+        <Text style={[styles.outline_title, textStyle]}>{text}</Text>
       </TouchableOpacity>
     );
   }
