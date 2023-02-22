@@ -10,6 +10,7 @@ const CustomActionSheet = ({actionSheetRef, children}) => {
   return (
     <ActionSheet
       ref={actionSheetRef}
+      gestureEnabled={true}
       containerStyle={{
         padding: 20,
         paddingTop: 5,

@@ -1,147 +1,109 @@
-import React, { useEffect, useState } from 'react'
-import { SafeAreaView, StatusBar, Text, TouchableOpacity, View, Dimensions, ImageBackground, Image } from 'react-native'
-import { FlatList } from 'react-native-gesture-handler'
-import { COLORS, FONTS, SIZES } from '../../theme'
-import data_home from '../../data/data_home'
-import { useNavigation } from '@react-navigation/native'
-import { styles } from './styles'
-import CustomButton from '../../components/Button'
+import React, {useEffect, useState, useRef} from 'react';
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+  Dimensions,
+  ImageBackground,
+  Image,
+  FlatList,
+} from 'react-native';
+import {COLORS, FONTS, SIZES} from '../../theme';
+import data_home from '../../data/data_home';
+import {useNavigation} from '@react-navigation/native';
+import {styles} from './styles';
+import CustomButton from '../../components/Button';
+// import VideoCard from './components/VideoCard';
+import SwiperFlatList from 'react-native-swiper-flatlist';
+import ReportModal from './components/ReportModal';
+import ActionSheet from 'react-native-actions-sheet';
+import ShopModal from './components/ShopModal';
+import ComentsModal from './components/ComentsModal';
+import ShareModal from './components/ShareModal';
+import VideoCard from './components/VideoCard';
 
 export const Home = () => {
-
-    const navigation = useNavigation();
-
-    const [homeArray, setHomeArray] = useState([])
-
-    useEffect(() => {
-        async function fetchData() {
-            setHomeArray(data_home);
-            // console.log(homeArray);
-        }
-        fetchData();
-    }, [])
-
-    const home_renderItem = ({ item, index }) => {
-
-        // console.log(item.background)
-
-        return (
-            <View
-                style={[{ flex: 1, height: Dimensions.get('window').height }]}
-            >
-                <ImageBackground source={item.background}
-                    style={{ flex: 1, width: '100%', backgroundColor: '#fff' }}>
-                    <View style={{
-                        flex: 1, flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        paddingBottom: 125,
-                        paddingHorizontal: 12
-                    }}>
-                        <View
-                            style={{ alignSelf: 'flex-end' }}
-                        >
-                            <View style={styles.container}>
-                                <TouchableOpacity>
-                                    <Image
-                                        source={item.profile.image}
-                                        style={{ height: 68, width: 68 }}
-                                        resizeMode="cover"
-                                    />
-                                </TouchableOpacity>
-                                <View style={{ color: COLORS.secondary, alignSelf: 'flex-start', marginHorizontal: 10, width: 120, flexDirection: 'column', gap: 4 }}>
-                                    <Text style={styles.profile_username} numberOfLines={1}>
-                                        {item.profile.username}
-                                    </Text>
-                                    <Text style={styles.profile_profession} numberOfLines={1}>
-                                        {item.profile.profession}
-                                    </Text>
-                                    <Text style={styles.item_posted} numberOfLines={1}>
-                                        Posted {item.posted}
-                                    </Text>
-                                </View>
-                                <CustomButton
-                                    text={'Follow'}
-                                    onPress={() => false}
-                                    small={true}
-                                />
-                            </View>
-                        </View>
-                        <View
-                            style={{ alignSelf: 'flex-end', alignItems: 'flex-end' }}
-                        >
-                            <View
-                                style={{
-                                    maxWidth: 100, gap: 5
-                                }}>
-                                <TouchableOpacity
-                                    style={{ alignItems: 'center' }}
-                                >
-                                    <Image
-                                        style={styles.social_icon}
-                                        source={require('../../assets/icons/Heart.png')}
-                                    />
-                                    <Text
-                                        style={styles.social_text}
-                                    >{item.likes}</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    style={{ alignItems: 'center' }}
-                                >
-                                    <Image
-                                        style={styles.social_icon}
-                                        source={require('../../assets/icons/shopping-cart.png')}
-                                    />
-                                    <Text
-                                        style={styles.social_text}
-                                    >Shop</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    style={{ alignItems: 'center' }}
-                                >
-                                    <Image
-                                        style={styles.social_icon}
-                                        source={require('../../assets/icons/comment-dots.png')}
-                                    />
-                                    <Text
-                                        style={styles.social_text}
-                                    >{item.comments}</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    style={{ alignItems: 'center' }}
-                                >
-                                    <Image
-                                        style={styles.social_icon}
-                                        source={require('../../assets/icons/send.png')}
-                                    />
-                                    <Text
-                                        style={styles.social_text}
-                                    >Share</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    style={{ alignItems: 'center' }}
-                                >
-                                    <Image
-                                        style={styles.social_icon}
-                                        source={require('../../assets/icons/more-horizontal-circle.png')}
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-            </View>
-        )
-    }
-
-    return (
-        // <SafeAreaView style={{ flex: 1 }}>
-        <FlatList
-            data={homeArray}
-            renderItem={home_renderItem}
-            snapToAlignment="start"
-            decelerationRate={"fast"}
-            snapToInterval={Dimensions.get("window").height}
-        />
-        // </SafeAreaView>
-    )
-}
+  const reportRef = useRef(null);
+  const commentRef = useRef(null);
+  const shareRef = useRef(null);
+  const shopRef = useRef(null);
+  return (
+    <View style={{flex: 1, position: 'relative'}}>
+      <SwiperFlatList
+        vertical
+        data={[data_home[0]]}
+        pagingEnabled
+        initialNumToRender={3}
+        keyExtractor={(item, index) => index + ''}
+        renderItem={({item, index}) => (
+          <VideoCard
+            data={item}
+            onReport={() => {
+              reportRef.current?.show();
+            }}
+            onComment={() => {
+              commentRef.current?.show();
+            }}
+            onShop={() => {
+              shopRef.current?.show();
+            }}
+            onShare={() => {
+              shareRef.current?.show();
+            }}
+          />
+        )}
+      />
+      {/* <VideoCard /> */}
+      <ActionSheet
+        ref={reportRef}
+        containerStyle={{
+          borderTopLeftRadius: 37,
+          borderTopRightRadius: 37,
+        }}
+        indicatorStyle={{
+          width: 35,
+          height: 2.8,
+          marginTop: 7,
+        }}
+        gestureEnabled={true}>
+        <ReportModal />
+      </ActionSheet>
+      <ActionSheet
+        ref={shopRef}
+        containerStyle={{
+          borderTopLeftRadius: 39,
+          borderTopRightRadius: 39,
+        }}
+        indicatorStyle={{
+          width: 37,
+          height: 2.98,
+          backgroundColor: 'rgba(229, 56, 78, 1)',
+          borderRadius: 100,
+          marginTop: 5,
+        }}
+        gestureEnabled={true}>
+        <ShopModal />
+      </ActionSheet>
+      <ActionSheet
+        ref={commentRef} 
+        gestureEnabled={true}   
+        containerStyle={{
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
+        }}
+        >
+        <ComentsModal />
+      </ActionSheet>
+      <ActionSheet
+        ref={shareRef}
+        containerStyle={{
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
+        }}>
+        <ShareModal shareRef={shareRef}/>
+      </ActionSheet>
+    </View>
+  );
+};
