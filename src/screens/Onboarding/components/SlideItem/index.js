@@ -1,5 +1,5 @@
 import { View, Text, Dimensions } from 'react-native'
-import { COLORS } from '../../../../theme'
+import { COLORS, FONTS } from '../../../../theme'
 import CustomButton from '../../../../components/Button'
 import { useNavigation } from '@react-navigation/native'
 import routes from '../../../../navigation/routes'
@@ -15,6 +15,7 @@ export default function Onboarding_SlideItem({ item }) {
             style={{
                 width: width,
                 paddingHorizontal: 19,
+                
                 // borderWidth: 2, borderColor: 'red'
             }}
         >
@@ -27,8 +28,8 @@ export default function Onboarding_SlideItem({ item }) {
                 }}>
                 <Text
                     style={{
-                        color: COLORS.black,
-                        fontSize: 38,
+                        ...FONTS.arial_rounded_bold,
+                        fontSize:38,
                         lineHeight: 44,
                         color: '#ffffff',
                         textAlign: 'center',
@@ -37,6 +38,7 @@ export default function Onboarding_SlideItem({ item }) {
                 </Text>
                 <Text
                     style={{
+                        ...FONTS.arial_rounded_bold,
                         color: '#FFF',
                         fontSize: 18,
                         textAlign: 'center',

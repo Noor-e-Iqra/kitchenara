@@ -33,7 +33,7 @@ export const Home = () => {
     <View style={{flex: 1, position: 'relative'}}>
       <SwiperFlatList
         vertical
-        data={[data_home[0]]}
+        data={data_home}
         pagingEnabled
         initialNumToRender={3}
         keyExtractor={(item, index) => index + ''}

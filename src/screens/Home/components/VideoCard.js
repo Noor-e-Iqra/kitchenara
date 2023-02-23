@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import Video from 'react-native-video';
 import {horizontalScale, moderateScale} from '../../../utils/metrices';
@@ -13,7 +14,7 @@ import {COLORS, FONTS} from '../../../theme';
 
 const {width, height} = Dimensions.get('screen');
 
-const VideoCard = ({onReport, onComment, onShop, onShare}) => {
+const VideoCard = ({onReport, onComment, onShop, onShare, data}) => {
   const videoRef = useRef(null);
 
   const onBuffer = e => {
@@ -26,13 +27,11 @@ const VideoCard = ({onReport, onComment, onShop, onShare}) => {
   return (
     <View
       style={{
-        height: height,
+        height:Platform.OS=='android'? height-74:height,
         width: width,
       }}>
       <Video
-        source={{
-          uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-        }}
+        source={{uri: data.url}}
         ref={videoRef}
         onBuffer={onBuffer}
         onError={videoError}
@@ -136,13 +135,13 @@ const VideoCard = ({onReport, onComment, onShop, onShare}) => {
 const styles = StyleSheet.create({
   backgroundVideo: {
     position: 'absolute',
-    height: height,
+    height: height - 60,
     width: width,
   },
   bottomContainer: {
     position: 'absolute',
     zIndex: 20,
-    bottom: 140,
+    bottom:Platform.OS=='android'? 60:90,
     width: width,
     paddingBottom: 30,
     paddingHorizontal: horizontalScale(12),
