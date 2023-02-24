@@ -29,4 +29,14 @@ export default {
     index: 'profile-index',
     cards:"profile-cards"
   },
+  addVideo: {
+    index: 'addVideo-index',
+    postVideo: 'postvideo-index',
+  },
+  postVideo: {
+    index: 'postvideo-index',
+  },
+  videoNext: {
+    index: 'videoNext-index',
+  },
 };

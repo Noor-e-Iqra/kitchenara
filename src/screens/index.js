@@ -13,3 +13,6 @@ export * from './Profile'
 export * from './Explore'
 export * from './SeeAll'
 export * from './Add-ons'
+export * from './AddVideo';
+export * from './PostVideo';
+export * from './VideoNext';

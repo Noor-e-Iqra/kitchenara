@@ -18,6 +18,8 @@ import {
   Verify_Phone,
   SeeAll,
   AddOns,
+  POstVideo,
+  VideoNext,
 } from '../screens';
 import RNBootSplash from 'react-native-bootsplash';
 
@@ -48,6 +50,9 @@ export const PrimaryNavigatory = () => {
         <Stack.Screen name={routes.explore.viewMenu} component={ViewMenu} />
         <Stack.Screen name={routes.explore.addOns} component={AddOns} />
         <Stack.Screen name={routes.explore.seeAll} component={SeeAll} />
+        {/* PostVideo screens */}
+        <Stack.Screen name={routes.postVideo.index} component={POstVideo} />
+        <Stack.Screen name={routes.videoNext.index} component={VideoNext} />
       </Stack.Navigator>
     </NavigationContainer>
   );

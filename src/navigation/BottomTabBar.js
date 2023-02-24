@@ -10,7 +10,7 @@ import routes from './routes';
 import {COLORS} from '../theme';
 // icons
 import icons from '../assets/icons';
-import {Home, Cards, ViewMenu, Profile, Explore } from '../screens';
+import {Home, Cards, ViewMenu, Profile, Explore, AddVideo } from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -87,7 +87,7 @@ const BottomTabBar = () => {
       />
       <Tab.Screen
         name={routes.post.index}
-        component={Orders}
+        component={AddVideo}
         options={route => ({
           tabBarIconStyle: {marginBottom: 26},
           tabBarIcon: ({focused}) => {
