@@ -35,7 +35,7 @@ export const Home = () => {
         vertical
         data={data_home}
         pagingEnabled
-        initialNumToRender={3}
+        initialNumToRender={2}
         keyExtractor={(item, index) => index + ''}
         renderItem={({item, index}) => (
           <VideoCard

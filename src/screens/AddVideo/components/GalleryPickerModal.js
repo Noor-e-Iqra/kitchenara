@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   View,
   FlatList,
+  Platform,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import {FONTS} from '../../../theme';
@@ -39,7 +41,7 @@ const GalleryPickerModal = ({callback}) => {
         <View style={{width: 43}} />
       </View>
       <FlatList
-        data={new Array(18).fill(null)}
+        data={new Array(20).fill(null)}
         numColumns={3}
         keyExtractor={(item, index) => index + ''}
         columnWrapperStyle={{
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
     height: height,
     backgroundColor: 'rgba(255, 255, 255, 1)',
     marginTop: 18,
-    position: 'relative',
+   // position: 'relative',
   },
   headercontainer: {
     flexDirection: 'row',
@@ -148,7 +150,7 @@ const styles = StyleSheet.create({
   bottomcard: {
     position: 'absolute',
     width: width,
-    height: 190,
+    height:Platform.OS=='ios'? 190:240,
     bottom: 0,
     right: 0,
     left: 0,
@@ -159,6 +161,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingBottom: 110,
+    paddingBottom: Platform.OS=='ios'? 110:130,
   },
 });

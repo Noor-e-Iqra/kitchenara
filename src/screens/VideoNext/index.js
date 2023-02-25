@@ -6,6 +6,7 @@ import {
   Dimensions,
   StatusBar,
   TouchableOpacity,
+  ImageBackground,
 } from 'react-native';
 import React from 'react';
 import routes from '../../navigation/routes';
@@ -14,7 +15,8 @@ import {
   moderateScale,
   verticalScale,
 } from '../../utils/metrices';
-import {FONTS} from '../../theme';
+import {COLORS, FONTS, SIZES} from '../../theme';
+import CustomButton from '../../components/Button';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -22,44 +24,56 @@ export const VideoNext = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle={'dark-content'} translucent={true} />
-      <View style={styles.bgImageWrapper}>
-        <Image
-          source={require('../../assets/images/videonexticon.png')}
-          resizeMode="contain"
-        />
-      </View>
-      <View style={styles.topParrent}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack();
+      <ImageBackground
+        source={require('../../assets/images/videonexticon.png')}
+        resizeMode="cover"
+        style={{height: height, width: width}}>
+        <View
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            padding: SIZES.padding,
           }}>
-          <Image source={require('../../assets/images/cross-white.png')} />
-        </TouchableOpacity>
-        <View>
-          <View style={{alignItems: 'center'}}>
-            <Image source={require('../../assets/images/scissors.png')} />
-            <Text style={{...styles.textstyle}}>Trim</Text>
+          <View style={styles.topParrent}>
+            <TouchableOpacity
+            activeOpacity={0.6}
+              onPress={() => {
+                navigation.goBack();
+              }}>
+              <Image source={require('../../assets/images/cross-white.png')} />
+            </TouchableOpacity>
+            <View>
+              <View style={{alignItems: 'center'}}>
+                <Image source={require('../../assets/images/scissors.png')} />
+                <Text style={{...styles.textstyle}}>Trim</Text>
+              </View>
+              <View
+                style={{
+                  marginVertical: verticalScale(20),
+                  alignItems: 'center',
+                }}>
+                <Image source={require('../../assets/images/sparkle.png')} />
+                <Text style={{...styles.textstyle}}>Effects</Text>
+              </View>
+              <View style={{alignItems: 'center'}}>
+                <Image source={require('../../assets/images/vector.png')} />
+                <Text style={{...styles.textstyle}}>Text</Text>
+              </View>
+            </View>
           </View>
-          <View
-            style={{marginVertical: verticalScale(15), alignItems: 'center'}}>
-            <Image source={require('../../assets/images/sparkle.png')} />
-            <Text style={{...styles.textstyle}}>Effects</Text>
-          </View>
-          <View style={{alignItems: 'center'}}>
-            <Image source={require('../../assets/images/vector.png')} />
-            <Text style={{...styles.textstyle}}>Text</Text>
-          </View>
+          <CustomButton
+            text={'Next'}
+            large={true}
+            btnStyle={styles.nextbtnstyle}
+            onPress={() => {
+              navigation.navigate(routes.postVideo.index);
+            }}
+          />
         </View>
-      </View>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate(routes.postVideo.index);
-        }}
-        style={{
-          ...styles.nextbtnstyle,
-        }}>
-        <Text style={{...styles.nextbtntextstyle}}>Next</Text>
-      </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
 };
@@ -75,35 +89,21 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   topParrent: {
-    position: 'absolute',
-    width: width,
-    top: verticalScale(47),
-    paddingHorizontal: horizontalScale(16),
-    display: 'flex',
+    marginTop: verticalScale(47),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
   nextbtnstyle: {
     position: 'absolute',
-    bottom: 30,
-    width: width - 32,
-    alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(229, 56, 78, 1)',
-    height: 58,
-    borderRadius: 16,
+    bottom: 60,
+    left: 16,
+    right: 16,
   },
-  nextbtntextstyle: {
+  textstyle:{
     ...FONTS.arial_rounded_bold,
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 1)',
-  },
-  textstyle: {
-    ...FONTS.arial_rounded_bold,
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 1)',
-    marginTop: 4,
-  },
+    fontSize:10,
+    color:COLORS.secondary,
+    marginTop:10
+  }
 });
