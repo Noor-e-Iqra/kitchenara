@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@react-native-community/checkbox": "^0.5.14",
@@ -16,6 +17,7 @@
     "@react-navigation/native": "^6.1.4",
     "@react-navigation/stack": "^6.3.14",
     "formik": "^2.2.9",
+    "patch-package": "^6.5.1",
     "react": "18.2.0",
     "react-native": "0.71.3",
     "react-native-actions-sheet": "^0.8.21",
@@ -29,6 +31,7 @@
     "react-native-swiper-flatlist": "^3.0.18",
     "react-native-vector-icons": "^9.2.0",
     "react-native-video": "^5.2.1",
+    "react-native-vision-camera": "^2.15.4",
     "yup": "^1.0.0"
   },
   "devDependencies": {

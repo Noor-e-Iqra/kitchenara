@@ -15,7 +15,7 @@ import {Home, Cards, ViewMenu, Profile, Explore, AddVideo } from '../screens';
 const Tab = createBottomTabNavigator();
 
 const BottomTabBar = () => {
-  const screenOptions = route => ({
+  const screenOptions = ({route}) => ({
     backBehavior: 'history',
     tabBarHideOnKeyboard: true,
     headerShown: false,
@@ -42,9 +42,11 @@ const BottomTabBar = () => {
       paddingHorizontal: 5,
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
-      position:'absolute'
+      position:'absolute',
+      display:route.name==routes.post.index?'none':'flex'
     },
-  });
+   
+});
 
   return (
     <Tab.Navigator screenOptions={screenOptions} backBehavior="history">
