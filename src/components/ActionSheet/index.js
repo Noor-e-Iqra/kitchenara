@@ -11,6 +11,7 @@ const CustomActionSheet = ({actionSheetRef, children}) => {
     <ActionSheet
       ref={actionSheetRef}
       gestureEnabled={true}
+      indicatorStyle={{backgroundColor: 'transparent'}}
       containerStyle={{
         padding: 20,
         paddingTop: 5,

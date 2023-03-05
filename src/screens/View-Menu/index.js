@@ -76,9 +76,7 @@ export const ViewMenu = ({navigation}) => {
             ListFooterComponent={
               Boolean(addToCart.length) && (
                 <CustomButton
-                  text={
-                    'Go to cart                                        SAR 24'
-                  }
+                  text={'Go to cart                                 SAR 24'}
                   large={true}
                   onPress={() => navigation.navigate(routes.orders.details)}
                 />
@@ -102,9 +100,7 @@ export const ViewMenu = ({navigation}) => {
             ListFooterComponent={
               Boolean(addToCart.length) && (
                 <CustomButton
-                  text={
-                    'Go to cart                                        SAR 24'
-                  }
+                  text={'Go to cart                                 SAR 24'}
                   large={true}
                   onPress={() => navigation.navigate(routes.orders.details)}
                 />
@@ -128,9 +124,7 @@ export const ViewMenu = ({navigation}) => {
             ListFooterComponent={
               Boolean(addToCart.length) && (
                 <CustomButton
-                  text={
-                    'Go to cart                                        SAR 24'
-                  }
+                  text={'Go to cart                                 SAR 24'}
                   large={true}
                   onPress={() => navigation.navigate(routes.orders.details)}
                 />
@@ -154,9 +148,7 @@ export const ViewMenu = ({navigation}) => {
             ListFooterComponent={
               Boolean(addToCart.length) && (
                 <CustomButton
-                  text={
-                    'Go to cart                                        SAR 24'
-                  }
+                  text={'Go to cart                                 SAR 24'}
                   large={true}
                   onPress={() => navigation.navigate(routes.orders.details)}
                 />
@@ -180,9 +172,7 @@ export const ViewMenu = ({navigation}) => {
             ListFooterComponent={
               Boolean(addToCart.length) && (
                 <CustomButton
-                  text={
-                    'Go to cart                                        SAR 24'
-                  }
+                  text={'Go to cart                                 SAR 24'}
                   large={true}
                   onPress={() => navigation.navigate(routes.orders.details)}
                 />

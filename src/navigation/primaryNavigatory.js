@@ -20,6 +20,7 @@ import {
   AddOns,
   POstVideo,
   VideoNext,
+  Splash,
 } from '../screens';
 import RNBootSplash from 'react-native-bootsplash';
 
@@ -27,13 +28,15 @@ const Stack = createStackNavigator();
 
 export const PrimaryNavigatory = () => {
   return (
-    <NavigationContainer onReady={() => RNBootSplash.hide({fade: true})}>
+    <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
           cardStyleInterpolator:
             CardStyleInterpolators.forScaleFromCenterAndroid,
         }}>
+        {/* Splash screen */}
+        <Stack.Screen name={routes.splash} component={Splash} />
         {/* authentication screens */}
         <Stack.Screen name={routes.auth.onboarding} component={Onboarding} />
         <Stack.Screen name={routes.auth.login} component={Login} />
