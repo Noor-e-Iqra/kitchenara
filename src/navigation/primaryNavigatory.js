@@ -22,7 +22,6 @@ import {
   VideoNext,
   Splash,
 } from '../screens';
-import RNBootSplash from 'react-native-bootsplash';
 
 const Stack = createStackNavigator();
 

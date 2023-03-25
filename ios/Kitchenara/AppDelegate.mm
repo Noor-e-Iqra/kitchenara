@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "RNBootSplash.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTBundleURLProvider.h>
 
@@ -14,9 +13,8 @@
 
   self.initialProps = @{};
 
-  [super application:application didFinishLaunchingWithOptions:launchOptions];
-    [RNBootSplash initWithStoryboard:@"BootSplash" rootView:self.window.rootViewController.view]; 
-      return YES;
+  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
